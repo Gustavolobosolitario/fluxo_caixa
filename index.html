@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Caixa</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Fluxo de Caixa</h1>
+
+    <!-- Formulário para inserir transações -->
+    <form action="/" method="post">
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" id="tipo">
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saída</option>
+        </select>
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" id="valor" step="0.01">
+        <input type="checkbox" name="parcela" id="parcela">
+        <label for="parcela">Parcelado</label>
+        <button type="submit">Inserir</button>
+    </form>
+
+     <!-- Gráfico de fluxo de caixa -->
+     <div id="grafico">
+        <script>
+            var grafico = "{{ grafico|safe }}";
+            document.getElementById('grafico').innerHTML = grafico;
+        </script>
+    </div>
+</div>
+</body>
+</html>
